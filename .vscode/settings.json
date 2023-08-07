@@ -1,0 +1,6 @@
+{
+    "dotnet.defaultSolution": "ACTIVIDAD FORMULARIO.sln",
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "bin\\Release\\net7.0\\publish",
+    "appService.defaultWebAppToDeploy": "/subscriptions/17a6a13d-8728-44cf-8c8a-c323c1b528b9/resourceGroups/DesarrolloWeb/providers/Microsoft.Web/sites/Actividad1DesarrolloWeb"
+}

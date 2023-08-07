@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/css/Alumno/estilo.css" asp-append-version="true" />
+    <title>@ViewData["Title"] - ACTIVIDAD_1_V2</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div>
+                <a asp-controller="Alumno" asp-action="Index">ACTIVIDAD 1</a>
+                <div>
+                    <ul>
+                        <li>
+                            <a asp-controller="Alumno" asp-action="Index">Ingresar Datos</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Alumno" asp-action="Listar">Listar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    @RenderBody()
+    <script src="~/js/Alumno/script.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿@model Alumno
+@{
+    ViewData["Title"] = "Datos del Estudiante";
+    Layout = "LayoutAlumno";
+}
+
+<form method="POST" id="FormularioAlumno" asp-action="Index">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <h1>Datos de Alumno</h1>
+    <div class="ContenedorForm">
+        <div>
+            <label asp-for="Carnet">Carnet:</label>
+            <input asp-for="Carnet" id="txtCarnet" type="text" name="Carnet" class="textbox" placeholder="Carnet">
+        </div>
+        <span asp-validation-for="Carnet" class="Error"></span>
+
+        <div>
+            <label asp-for="Nombre">Nombre:</label>
+            <input asp-for="Nombre" id="txtNombre" type="text" name="Nombre" class="textbox" placeholder="Nombre">
+        </div>
+        <span asp-validation-for="Nombre" class="Error"></span>
+
+        <div>
+            <label asp-for="FechaNacimiento">Fecha Nacimiento:</label>
+            <input asp-for="FechaNacimiento" id="txtFecha" type="date" name="FechaNacimiento" class="inpFecha">
+        </div>
+        <span asp-validation-for="FechaNacimiento" class="Error"></span>
+
+        <div>
+            <label asp-for="Correo">Correo:</label>
+            <input asp-for="Correo" id="txtCorreo" type="email" name="Correo" class="textbox" placeholder="Correo electronico">
+        </div>
+        <span asp-validation-for="Correo" class="Error"></span>
+    </div>
+
+    <div class="rechatcha-container">
+        <div class="g-recaptcha" data-sitekey="6LdD8GcnAAAAAIFLJs1t-HXwm79fAfA4hKOuIUjC" ></div>
+    </div>
+    <span class="Error">@ViewBag.Recaptcha</span>
+
+    <div class="botones">
+        <input type="button" value="Validar" onclick="Validar(true)">
+        <input type="submit" value="Grabar" name="btnGrabar" >
+        <input type="button" value="Limpiar" onclick="Limpiar()">
+    </div>
+</form>

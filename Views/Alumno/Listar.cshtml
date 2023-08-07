@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Alumno>
+@{
+    ViewData["Title"] = "Lista de Estudiantes";
+    Layout = "LayoutAlumno";
+}
+
+<div class="TablaContenedor">
+    <h1>Tabla de Alumnos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Carnet</th>
+                <th>Nombre</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Correo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Carnet</td>
+                    <td>@item.Nombre</td>
+                    <td>@item.FechaNacimiento.ToShortDateString()</td>
+                    <td>@item.Correo</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
