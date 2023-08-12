@@ -39,7 +39,8 @@ namespace ACTIVIDAD_FORMULARIO.Controllers
                 ViewBag.Mensaje = "Usuario Correcto";
                 _context.Alumnos.Add(alumno);
                 _context.SaveChanges();
-                EmailSender.SendEmail(alumno);
+                var emailSender = new EmailSender(configuration);
+                emailSender.SendEmail(alumno);
                 return View("Index", new Alumno());
             }
 

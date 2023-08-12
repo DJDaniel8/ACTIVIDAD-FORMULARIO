@@ -11,8 +11,8 @@ namespace ACTIVIDAD_FORMULARIO.Services
     {
         private IConfiguration configuration;
 
-        static string email = "UMGDesarrolloWeb@gmail.com";
-        private static string pwd;
+        string email = "UMGDesarrolloWeb@gmail.com";
+        private  string pwd;
 
         public EmailSender(IConfiguration configuration)
         {
@@ -20,7 +20,7 @@ namespace ACTIVIDAD_FORMULARIO.Services
             pwd = this.configuration.GetSection("SMTP").GetSection("ClaveSecreta").Value;
         }
 
-        public static void SendEmail(Alumno alumno)
+        public void SendEmail(Alumno alumno)
         {
             var fromAddress = new MailAddress(email);
             var toAddress = new MailAddress(alumno.Correo);
@@ -38,7 +38,8 @@ namespace ACTIVIDAD_FORMULARIO.Services
 
             var bodyBuilder = new BodyBuilder();
             bodyBuilder.TextBody = body;
-            QRGenerator.Generar(alumno.Carnet, bodyBuilder);
+            QRGenerator.Generar(alumno.Carnet, bodyBuilder, body);
+
 
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("Remitente", pwd));
